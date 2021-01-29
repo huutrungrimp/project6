@@ -1,0 +1,75 @@
+{% extends "edu/layout.html" %}
+
+
+{% block body %}
+<h2 id="welcome">Welcome to Online Learning</h2>
+
+<div id="user-register">
+    <table>
+        <th>
+            <td><button> <a href="{% url 'studentRegister' %}">Student Register</a></button></td>
+            <td><button> <a href="{% url 'teacherRegister' %}">Teacher Register</a></button></td>
+        </th>
+    </table>
+</div>
+
+
+<div id="course-form">
+    <h3>Create A Course </h3>
+    <form>
+
+        <div class="form-group">
+            <label for="course-name">Course Name</label>
+            <input type="text" id="course-name" class="form-control" name="title" />
+        </div>   
+
+        <div class="form-group">
+            <label for="course-hours">Hours</label>
+            <input type="number" id="course-hours" class="form-control" name="title" />
+        </div>  
+
+        <div class="form-group">
+            <label for="course-period">Select Day:</label>
+            <select class="form-control" id="course-day">
+              <option value="Mon">Monday</option>
+              <option value="Tue">Tuesday</option>
+              <option value="Wed">Wednesday</option>
+              <option value="Thu">Thursday</option>
+              <option value="Fri">Friday</option>
+              <option value="Sat">Saturday</option>
+              <option value="Sun">Sunday</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="course-period">Select Period:</label>
+            <select class="form-control" id="course-period">
+              <option value="Period 1">8:00-10:00</option>
+              <option value="Period 2">10:00-12:00</option>
+              <option value="Period 3">12:00-14:00</option>
+              <option value="Period 4">14:00-16:00</option>
+              <option value="Period 5">16:00-18:00</option>
+              <option value="Period 6">18:00-20:00</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Teacher</label>
+            <input disabled class="form-control" value="{{ request.user.username }}">
+        </div>
+
+        <div class="form-group">
+            <label for="courseID">Course ID</label>
+            <input id="courseID" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="course-description">Course Description</label>
+            <textarea rows="10" id="course-description" class="form-control" name="content" ></textarea>
+        </div>
+        <button id="createCourse" type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+{% endblock %}
