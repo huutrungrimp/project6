@@ -1,0 +1,70 @@
+{% extends "edu/layout.html" %}
+
+
+{% block body %}
+<h2 id="welcome">Welcome to Online Learning</h2>
+
+<div id="user-register">
+    <table>
+        <th>
+            <td><button> <a href="{% url 'studentRegister' %}">Student Register</a></button></td>
+            <td><button> <a href="{% url 'teacherRegister' %}">Teacher Register</a></button></td>
+        </th>
+    </table>
+</div>
+
+
+
+<div id="timetableview">
+
+</div>
+
+
+
+<div id="course-form">
+    <h3>Create A Course </h3>
+    <form>
+
+        <div class="form-group">
+            <label for="course-name">Course Name</label>
+            <input type="text" id="course-name" class="form-control" name="title" />
+        </div>
+
+        <div class="form-group">
+            <label for="course-credit">Course ID</label>
+            <input id="course-credit" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="courseID">Course ID</label>
+            <input id="courseID" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="course-type">Course ID</label>
+            <input id="course-type" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="course-description">Course Description</label>
+            <textarea rows="10" id="course-description" class="form-control" name="content" ></textarea>
+        </div>
+        <button id="createCourse" type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+<div id="course-list">
+    <h2>List of Courses</h2>
+
+</div>
+
+<div id="course-detail">
+    
+</div>
+
+<div id="timetable">
+    
+</div>
+
+
+{% endblock %}

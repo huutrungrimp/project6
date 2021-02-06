@@ -1,0 +1,37 @@
+td{
+    padding-right: 5px;
+}
+
+
+
+.nav-item {
+    text-align: center;
+    font-size:larger;
+    font-weight:bold;
+
+}
+.nav-link {
+    color: rgb(13, 13, 238)!important;
+}
+
+body{
+    background-color:aquamarine!important;
+}
+
+.form-control{
+    height: 30px!important;
+}
+
+thead{
+    font-weight: bold!important;
+}
+table.timetable-class{
+    width: 60%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+table.coursetable-class{
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+}
