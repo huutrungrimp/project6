@@ -1,0 +1,43 @@
+td{
+    padding-right: 5px;
+}
+table{
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    margin: 0!important;
+}
+
+.nav-item {
+    text-align: center;
+    font-size:larger;
+    font-weight:bold;
+    width: 110px;
+}
+.nav-link {
+    text-align: left;
+    color: rgb(13, 13, 238)!important;
+}
+
+.form-control{
+    height: 30px!important;
+}
+
+#courseform{
+    background-color: rgb(71, 126, 71);
+    padding: 5px;
+    width: 50%!important;
+    margin: auto;
+}
+
+#bodyID{
+    background-color:rgb(207, 207, 235);
+    height: 700px;
+}
+
+div .dropdown-menu{
+    min-width: 10%!important;
+    background-color:rgb(233, 192, 192)!important;
+}

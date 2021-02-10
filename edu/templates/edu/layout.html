@@ -12,66 +12,97 @@
 
     </head>
     </div>
-    <body class='container'>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">             
-            
+    <body>
+        <div style='background-color:rgb(161, 197, 168)'>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class='container'>
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            {% if user.is_authenticated %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                            </li>    
 
-            <div>
-              <ul class="navbar-nav mr-auto">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><strong>{{ user.username }}</strong></a>
-                    </li>
-                {% endif %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Grades
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Grade 12</a>
+                                    <a class="dropdown-item" href="#">Grade 11</a>
+                                    <a class="dropdown-item" href="#">Grade 10</a>
+                                    <a class="dropdown-item" href="#">Grade 9</a>
+                                    <a class="dropdown-item" href="#">Grade 8</a>
+                                    <a class="dropdown-item" href="#">Grade 7</a>
+                                    <a class="dropdown-item" href="#">Grade 6</a>
+                                    <a class="dropdown-item" href="#">Grade 5</a>
+                                    <a class="dropdown-item" href="#">Grade 4</a>
+                                    <a class="dropdown-item" href="#">Grade 3</a>
+                                    <a class="dropdown-item" href="#">Grade 2</a>
+                                    <a class="dropdown-item" href="#">Grade 1</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Students
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{% url 'studentRegister' %}">Register</a>
+                                    <a class="dropdown-item" href="#">Select Courses</a>
+                                    <a class="dropdown-item" href="#">Progress</a>
+                                </div>
+                            </li>
+    
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Teachers
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{% url 'teacherRegister' %}">Register</a>
+                                    <a class="dropdown-item" onclick="courseForm()" href="#">Create Courses</a>
+                                    <a class="dropdown-item" href="#">Courses</a>
+                                </div>
+                            </li>
+                            {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'index' %}">Register</a>
+                            </li>
+
+                            {% endif %}
 
 
-                {% if user.is_authenticated %}     
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
-                    </li>           
+                            {% if user.is_authenticated %}
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{{request.user.username}}</a>
+                            </li>
 
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Students
-                            <span class="caret"></span></button>
-                            <ul class="dropdown-menu"> 
-                                <li><a href="{% url 'studentRegister' %}">Register</a></li>                               
-                                <li><a href="#">Select Courses</a></li>
-                                <li><a href="#">Progress</a></li>
-                            </ul>
-                        </div>
-                        
-                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
 
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Teachers
-                            <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'teacherRegister' %}">Register</a></li>   
-                                <li onclick='courseForm()' ><a href="#">Create Course</a></li>
-                                <li><a href="#">Courses</a></li>
-                            </ul>
-                        </div>
-                        
-                    </li>
+                            {% endif %}
+                        </ul>            
+                        <form class="form-inline my-2 my-lg-0" style="float:right; padding: 5px">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>                
+                </div>            
+            </nav> 
+        </div>       
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Register</a>
-                    </li>
-                {% endif %}
-              </ul>
-            </div>
-        </nav>
-        
-        <div class="body">
+        <div id="bodyID" class="container">
             {% block body %}
             {% endblock %}
         </div>
@@ -80,5 +111,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script type="text/javascript" src="{% static 'edu/index.js' %}"></script>
+        <script type="text/javascript" src="{% static 'quiz/quiz.js' %}"></script>
     </body>
 </html>
