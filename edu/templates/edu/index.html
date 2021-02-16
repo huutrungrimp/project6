@@ -1,0 +1,75 @@
+{% extends "edu/layout.html" %}
+
+{% block body %}
+    
+
+
+<div id="courseform-view">
+    <h3>Create A Course </h3>
+    <form id="courseform">           
+        <div class="form-group">
+            <label for="course-grade">Select Grade</label>
+            <select class="form-control" id="course-grade">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="course-name">Course Name</label>
+            <input type="text" id="course-name" class="form-control" name="title" />
+        </div>
+
+        <div class="form-group">
+            <label for="course-hours">Hours</label>
+            <input type="number" id="course-hours" class="form-control" name="title" />
+        </div>  
+        <div class="form-group">
+            <label>Teacher</label>
+            <input disabled class="form-control" value="{{ request.user.username }}">
+        </div>
+
+        <div class="form-group">
+            <label for="course-description">Course Description</label>
+            <textarea rows="10" id="course-description" class="form-control" name="content" ></textarea>
+        </div>
+        <input type="submit" onclick='createCourse()'  value="Create">
+        
+    </form>
+</div>
+
+
+<div id='course-list'>
+    <h3>List of Courses</h3>
+
+</div>
+
+
+<div id='myCourses'>
+    <h3>My Courses</h3>
+
+</div>
+
+
+
+<div id='course-view'>
+    <h3>Course Description</h3>
+</div>
+
+
+<div id='eclassform-view'>
+    <h3>Create Eclass</h3>
+    
+</div>
+
+{% endblock %}
